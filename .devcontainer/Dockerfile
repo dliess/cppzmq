@@ -22,39 +22,21 @@ ENV LANGUAGE en_US.UTF-8
 
 # Package installs
 RUN apt-get update && apt-get install -y \
-	      sudo \
+	     sudo \
         cmake \
+        pkg-config \
         clang \
         clang-format \
         ninja-build \
         g++ \
         gdb \
         git \
-        libasound2-dev \
         libgtest-dev \
         libgmock-dev \
-        libusb-1.0-0-dev \
-        uuid-dev \
         libspdlog-dev \
         && rm -rf /var/lib/apt/lists/*
 
-# install Qt build common dependencies
-RUN apt-get update && apt-get install -y \
-        qtbase5-dev \
-        qtdeclarative5-dev \
-        libqt5websockets5-dev \
-        libqt5webchannel5-dev \
-        && rm -rf /var/lib/apt/lists/*
 
-# install Qt build dependencies for frontend
-RUN apt-get update && apt-get install -y \
-        qml-module-qtquick-layouts \
-        qml-module-qtquick-controls \
-        qml-module-qtquick-controls2 \
-        qml-module-qtquick-dialogs \
-        qml-module-qtquick-shapes \
-        qml-module-qt-websockets \
-        && rm -rf /var/lib/apt/lists/*
 
 # some utilities for runtime
 RUN apt-get update && apt-get install -y \
@@ -65,14 +47,6 @@ RUN apt-get update && apt-get install -y \
         wget \
         && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y \
-        pkg-config \
-        libcapnp-dev \
-        capnproto \
-        libzmq3-dev \
-        python3-toml \
-        python3-venv \
-        && rm -rf /var/lib/apt/lists/*
 
 RUN     apt-get update && apt-get install -y \
         ripgrep \
@@ -101,5 +75,5 @@ RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gentoo"/g' ~/.zshrc
 RUN echo "alias vim=~/nvim-linux64/bin/nvim" >> ~/.zshrc
 RUN echo "alias vi=~/nvim-linux64/bin/nvim" >> ~/.zshrc
 
-WORKDIR /home/build-user/nomidi-backend
+WORKDIR /home/build-user/cppzmq
 
