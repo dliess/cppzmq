@@ -10,8 +10,8 @@ include(cmake/CPM.cmake)
 
 CPMFindPackage(
   NAME libzmq
-  GITHUB_REPOSITORY zeromq/libzmq
-  GIT_TAG v4.3.4
+  GITHUB_REPOSITORY dliess/libzmq
+  GIT_TAG dliess/v4.3.4
   OPTIONS
     "ENABLE_ASAN OFF"
     "ENABLE_TSAN OFF"
